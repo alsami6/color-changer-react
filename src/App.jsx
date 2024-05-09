@@ -5,6 +5,7 @@ const App = () => {
   const x = 10;
   const y = 20;
   const names = ["Sami", "Ratul", "Mir"];
+  const sami = "Kmn aso"
   
   return (
     <>
@@ -14,6 +15,7 @@ const App = () => {
       <ul>
         { names.map((name ,index) => (
           <li key={index}>{ name }</li>
+          <li>{sami}</li>
         ))}
       </ul>
     </>
