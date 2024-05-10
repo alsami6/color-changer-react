@@ -1,40 +1,27 @@
-import { useState,useCallback } from 'react'
-import './App.css'
+import React from 'react'
 
-function App() {
-  const [length, setLength] = useState(8)
-  const [numberAllowed, setNumberAllowed] = useState(false);
-  const [charAllowed, setCharAllowed] = useState(false);
-  const [password, setPassword] = useState("");
-
-  const passwordGenerator = useCallback(() =>{
-    let pass = ""
-    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
-    if (numberAllowed) str += "0123456789"
-    if (charAllowed) str += "!@#$%^&*()~!{}+=_"
-
-    for (let i = 1; i <= array.length; i++) {
-      let char = Math.floor(Math.random() * str.length + 1)
-      pass = str.charAt(char)
-    }
-
-    setPassword(pass)
-
-
-  }, [length, numberAllowed, charAllowed ,setPassword])
-
-  }
-
+const App = () => {
   return (
-    
-    
     <>
-      <div className='w-full max-w-md mx-auto shadow-md rounded-lg my-8 px-4 text-orange-500 bg-gray-700'>
-
-      </div>
+    <div className=''>App</div>
+    <Person></Person>
+    <Device name="laptop" price="55"></Device>
+    <Device name="moblie" price="20"></Device>
     </>
   )
+}
+
+function Person() {
+  const age = 18;
+  const money = 188;
+  const person = {name:"Sami", age:12}
+
+  return <h3>I am {person.name} with age:{age+money}</h3>
+}
+
+function Device(props){
+  console.log(props);
+  return <h2>This Device: {props.name} price:{props.price}</h2>
 }
 
 export default App
