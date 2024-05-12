@@ -13,6 +13,28 @@ function Counter () {
   )
 }
 
+function NameList(){
+  const [list , listCount] = useState(["Sami" , "Ratul" , "Anas" , "Elius"])
+  const [name , setName] = useState("");
+
+  const onAddName = () => {
+    list.push(name)
+    listCount([...list, name])
+  }
+
+  return(
+    <div className='m-10 p-2'>
+      <ul>
+          {list.map((name) => ( <li key={name}> {name} </li> ))}
+      </ul>
+      <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+      <button onClick={onAddName} >Add Name</button>
+    </div>
+  )
+
+}
+
+
 function App(){
   return (
     <div>
@@ -21,6 +43,9 @@ function App(){
       <Counter />
       <Counter />
       <Counter />
+
+      <NameList />
+
     </div>
   );
 }
